@@ -1,0 +1,48 @@
+{
+  "presets": [
+    "next/babel"
+	],
+  "plugins": [
+		["babel-plugin-root-import",
+      {
+        "paths": [
+					{
+            "rootPathSuffix": "./const",
+            "rootPathPrefix": "@const/"
+					},
+          {
+            "rootPathSuffix": "./helpers",
+            "rootPathPrefix": "@help/"
+					},
+					{
+            "rootPathSuffix": "./views",
+            "rootPathPrefix": "@views/"
+          },
+          {
+            "rootPathSuffix": "./components",
+            "rootPathPrefix": "~/"
+          },
+          {
+            "rootPathSuffix": "./styles",
+            "rootPathPrefix": "@styles/"
+          },
+          {
+            "rootPathSuffix": "./store",
+            "rootPathPrefix": "@store/"
+          },
+          {
+            "rootPathSuffix": "./static",
+            "rootPathPrefix": "@static/"
+          }
+        ]
+      }
+		],
+		[
+			"babel-plugin-styled-components", {
+				"ssr": true,
+        "displayName": true,
+        "preprocess": false
+			}
+		]
+  ]
+}
