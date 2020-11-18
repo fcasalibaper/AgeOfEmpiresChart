@@ -10,13 +10,13 @@ const Detail = (api) => {
 					return (
 						<li key={item.id}>
 							<header>
-								<h2>
+								<h1>
 									{item.name}<br/>
 									<small>
 											Type of Army: {item.army_type}<br />
 											Expansion: {item.expansion}
 									</small>
-								</h2>
+								</h1>
 							</header>
 
 							{item.civilization_bonus && item.civilization_bonus.map(bonus => <div key={bonus}>{bonus}</div>)}
