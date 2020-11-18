@@ -2,9 +2,9 @@
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 
 module.exports = ({
-	// publicRuntimeConfig: {
-  //   VARIABLE_TEST_FER : process.env.VARIABLE_TEST_FER
-	// },
+	publicRuntimeConfig: {
+    API : process.env.API
+	},
 	typescript: {
     ignoreBuildErrors: true,
   },
