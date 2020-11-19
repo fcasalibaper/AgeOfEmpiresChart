@@ -7,6 +7,7 @@ import { Grid } from '@styles/grid.styled';
 import { ButtonStyled, UnderlineLink } from '@styles/general.styles';
 import { Bread } from '~/common/Bread/Bread';
 import Link from 'next/link';
+import { Fragment } from 'react';
 
 type DetailProps = {
 	api : object[],
@@ -52,29 +53,36 @@ const Detail = (api : DetailProps) => {
 								</h1>
 							</header>
 
-							<h2>Technologies:</h2>
-							<Grid
-								as={"ul"}
-								colSize={12}
-								direction={'column'}
-								padd={'0 0 20px 0'}
-							>
-								{item.unique_tech && item.unique_tech.map(tech => {
-									const parts = tech.split('/');
-									const lastSegment = parts.pop('') || parts.pop();
-									const nameTech =  lastSegment.indexOf('_') > 0 ? lastSegment.replace(/_/g, ' ') : lastSegment;
-									return (
-										<Link
-											key={tech}
-											href={`/tech/[subIndex]`}
-											as={`/tech/${lastSegment}`}
-										><UnderlineLink as={'a'}>
-											<li key={tech}>{nameTech}</li>
-										</UnderlineLink>
-										</Link>
-									)
-								})}
-							</Grid>
+								{(item.unique_tech && item.unique_tech.length > 0) && (
+									<Fragment>
+										<h2>Technologies:</h2>
+										<Grid
+											as={"ul"}
+											colSize={12}
+											direction={'column'}
+											padd={'0 0 20px 0'}
+										>
+										{
+											item.unique_tech.map(tech => {
+												const parts = tech.split('/');
+												const lastSegment = parts.pop('') || parts.pop();
+												const nameTech =  lastSegment.indexOf('_') > 0 ? lastSegment.replace(/_/g, ' ') : lastSegment;
+												return (
+													<Link
+														key={tech}
+														href={`/tech/[subIndex]`}
+														as={`/tech/${lastSegment}`}
+													><UnderlineLink as={'a'}>
+														<li key={tech}>{nameTech}</li>
+													</UnderlineLink>
+													</Link>
+												)
+											})
+										}
+										</Grid>
+									</Fragment>
+								)}
+							
 
 							<h2>Bonus:</h2>
 							<Grid

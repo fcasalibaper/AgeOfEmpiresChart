@@ -23,8 +23,6 @@ type TechProps = {
 const Tech = (api : TechProps) => {
 	const { tech } = api;
 
-	console.log('tech: ', tech)
-
 	return (
 		<Layout>
 			<Bread href={"/"} />
