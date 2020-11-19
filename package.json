@@ -13,6 +13,7 @@
     "next": "10.0.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "react-use-window-sessionstorage": "^1.0.8",
     "styled-components": "^5.2.1",
     "styled-media-query": "^2.1.2",
     "typescript": "^4.0.5",

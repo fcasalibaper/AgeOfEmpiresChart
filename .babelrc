@@ -31,7 +31,7 @@
             "rootPathPrefix": "@store/"
           },
           {
-            "rootPathSuffix": "./static",
+            "rootPathSuffix": "/static",
             "rootPathPrefix": "@static/"
           }
         ]

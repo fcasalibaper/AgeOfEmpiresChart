@@ -7,6 +7,9 @@ module.exports = ({
 	},
 	typescript: {
     ignoreBuildErrors: true,
+	},
+	images: {
+    deviceSizes: [640, 750, 828],
   },
 	webpack(config, options) {
 		if (!config.resolve.plugins) {

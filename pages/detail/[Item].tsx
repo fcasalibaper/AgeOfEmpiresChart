@@ -4,7 +4,7 @@ import getConfig from 'next/config';
 const { publicRuntimeConfig = {} } = getConfig() || {};
 
 // Exporting Home
-export { default } from "@views/Detail";
+export { default } from "@views/Detail/Detail";
 
 // reciving data from api / variables
 export const getServerSideProps: GetServerSideProps = async (context) => {

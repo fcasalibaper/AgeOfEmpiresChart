@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { containerMaxWidth, media } from './breakpoints.styled';
-import { REGULAR, TRANSITION, COLOR_BLUE, PADDING_DESKTOP_LR, BOLD, FONT_ROOT, PADDING_MOBILE_LR } from './variables.styled';
+import { REGULAR, TRANSITION, COLOR_BLUE, PADDING_DESKTOP_LR, BOLD, FONT_ROOT, PADDING_MOBILE_LR, COLOR_GREYDARK } from './variables.styled';
 
 export const Row = styled.div`
   position:relative;
@@ -145,51 +145,42 @@ export const ButtonStyled = styled.button`
 	border: none;
 	box-shadow: 0 1px 10px 0 rgba(50, 54, 72, 0.09),
 							0 14px 29px 0 rgba(50, 54, 72, 0.1);
-	height: 43px;
+	height: 50px;
 	padding: 1rem 2rem;
 	text-transform: inherit;
-	background-color: ${props => props.variant == 'outlined' ? 'transparent' : ({ theme }) => theme.buttons.color.default};
-	font-size: 14px;
+	background-color: ${props => props.variant == 'outlined' ? 'transparent' : COLOR_BLUE};
+	font-size: 20px;
   font-weight: ${REGULAR};
   line-height: 1;
   text-align: center;
-  color: ${({ theme }) => theme.buttons.color.textDefault};
 	transition: ${TRANSITION};
 	width: ${props => props.size == 'full' ? '100%' : 'auto'};
-	border: 1px solid ${props => props.variant == 'outlined' ? ({ theme }) => theme.buttons.color.default : 'transparent'};
-	color:  ${props => props.variant == 'outlined' ? ({ theme }) => theme.buttons.color.default : 'white'};
+	border: transparent;
+	color:  ${props => props.variant == 'outlined' ? COLOR_GREYDARK : 'white'};
 	cursor: pointer;
 
 	${media.greaterThan('sm')`
 		border-radius: 16px;
 		font-size: 18px;
 		line-height: 1.55;
-		height: 50px;
+		height: 55px;
 		font-weight: ${BOLD};
 		/* text-transform: uppercase; */
 	`};
+
+	${props => props.disabled &&`
+		background-color: lightgrey !important;
+		color:  grey !important;
+		cursor: none;
+		user-select: none;
+  	pointer-events: none;
+	`}
 
 
 	&:hover,
 	&:focus {
 		box-shadow: 0 2px 1px 0 rgba(50, 54, 72, 0.5),
 								0 3px 8px 0 rgba(50, 54, 72, 0.2);
-	}
-`;
-
-export const UnderLinkButton = styled(ButtonStyled)`
-	background-color: transparent;
-	font-size: 16px;
-	font-weight: ${BOLD};
-	color: ${({ theme }) => theme.buttons.color.underline};
-	text-decoration: underline;
-	box-shadow: none;
-	text-transform: none;
-	
-
-	&:hover,
-	&:focus {
-		box-shadow: none;
 	}
 `;
 
