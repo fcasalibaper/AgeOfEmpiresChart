@@ -3,10 +3,13 @@ import MyHead from "./_head";
 import { Fragment } from "react";
 import { GlobalStyle } from "@styles/global.styles";
 import { AnimatePresence, motion } from 'framer-motion';
-import { fadeInScreen } from '@styles/variablesMotion';
-// import ToolResponsive from '@help/ToolResponsive/ToolResponsive';
+import { fadeInScreen, fadeInScreenMobile } from '@styles/variablesMotion';
+import useMatchMedia from 'react-use-match-media';
+import { pxs } from '@styles/breakpoints.styled';
 
 const MyApp = ({ Component, pageProps, router }: AppProps) => {
+	const width = pxs['sm'] + 1;
+	const matchMeedia = useMatchMedia("(min-width: "+ width +"px)");
 	return (
 		<Fragment>
       <MyHead />
@@ -20,7 +23,7 @@ const MyApp = ({ Component, pageProps, router }: AppProps) => {
 					initial="initial"
 					animate="animate"
 					exit="exit"
-					variants={ fadeInScreen }
+					variants={ matchMeedia ? fadeInScreen : fadeInScreenMobile }
 					key={`motionPresnce-${router.route}`}
 					>
 					<Component {...pageProps} />

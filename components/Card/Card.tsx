@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Grid } from '@styles/grid.styled'
 import { CardStyled } from '~/Card/Card.styled'
 import Link from 'next/link'
@@ -15,7 +16,8 @@ export const Card = ({
 	link,
 	selected
 } : CardProps) => {
-
+	const [ isSubmitted, setSubmitted ] = useState<boolean>(false);
+	
 	return (
 		<Grid
 			as={'li'}
@@ -25,10 +27,11 @@ export const Card = ({
 			padd={'1rem'}
 		>
 			<Link
-				href={`detail/[item]`}
-				as={`detail/${link}`}
+				href={`/[section]/[item]`}
+				as={`/detail/${link}`}
+				// disabled={isSubmitted}
 			>
-				<a style={{width: '100%'}}>
+				<a style={{width: '100%'}} onClick={() => setSubmitted(true)}>
 					<CardStyled
 						colSize={12}
 						padd={'2rem'}

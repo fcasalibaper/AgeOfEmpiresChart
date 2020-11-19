@@ -4,9 +4,9 @@ const cubicIn = [0.55, 0.06, 0.68, 0.19];
 export const fadeInScreen = {
   initial : {
 		opacity : 0,
-		background: '#ffffff',
-    y : -10,
+  	y : -10,
 		scale: 1.1,
+		background: '#ffffff',
 		transition: {
 			ease : cubicOut
 		}
@@ -20,10 +20,33 @@ export const fadeInScreen = {
 		}
   },
   exit : {
-    y : -10,
     opacity : 0,
+    y : -10,
+		scale: 1.1,
     background: '#ffffff',
-		scale: 1.03,
+		transition: {
+			ease : cubicIn
+		}
+  }
+}
+
+export const fadeInScreenMobile = {
+  initial : {
+		opacity : 0,
+		background: '#ffffff',
+		transition: {
+			ease : cubicOut
+		}
+  },
+  animate : {
+		opacity : 1,
+		transition: {
+			ease : cubicIn
+		}
+  },
+  exit : {
+		opacity : 0,
+    background: '#ffffff',
 		transition: {
 			ease : cubicIn
 		}
@@ -111,34 +134,6 @@ export const fadeInDown = {
 		background: '#ffffff',
 		transition: {
 			ease : cubicOut
-		}
-  }
-}
-
-export const CardErased = {
-  initial : {
-    opacity : 0,
-    y : -70,
-		background: '#ffffff',
-		transition: {
-			ease : cubicOut
-		}
-  },
-	animate : {
-    opacity : 1,
-		y : 0,
-		transition: {
-			ease : cubicOut
-		}
-  },
-  exit : {
-		translateX: '50%',
-		background: '#b80000',
-		opacity : 0,
-		transition: {
-			ease : cubicOut,
-			duration: .550,
-			delay: .30,
 		}
   }
 }
