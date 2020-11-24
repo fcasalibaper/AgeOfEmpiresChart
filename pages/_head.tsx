@@ -8,7 +8,7 @@ const MyHead = (props) => {
       <meta key="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-      <meta name="apple-mobile-web-app-title" content="Frávega: Electrodomésticos, Tecnología y Artículos para el hogar" />
+      <meta name="apple-mobile-web-app-title" content="Age of empires II - Chart" />
       <link rel="apple-touch-icon" href="/public/favicon-192x192.png" />
       <link rel="apple-touch-startup-icon" href="/public/favicon-192x192.png" />
       <link rel="icon" href="/public/favicon.ico" />
