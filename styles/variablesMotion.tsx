@@ -8,7 +8,8 @@ export const fadeInScreen = {
 		scale: 1.1,
 		background: '#ffffff',
 		transition: {
-			ease : cubicOut
+			ease : cubicOut,
+			delay: 0
 		}
   },
   animate : {
@@ -16,7 +17,8 @@ export const fadeInScreen = {
     y : 0,
 		scale: 1,
 		transition: {
-			ease : cubicIn
+			ease : cubicIn,
+			delay: 0
 		}
   },
   exit : {
@@ -25,7 +27,8 @@ export const fadeInScreen = {
 		scale: 1.1,
     background: '#ffffff',
 		transition: {
-			ease : cubicIn
+			ease : cubicIn,
+			delay: 0
 		}
   }
 }

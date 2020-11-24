@@ -9,9 +9,9 @@ const MyHead = (props) => {
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       <meta name="apple-mobile-web-app-title" content="Frávega: Electrodomésticos, Tecnología y Artículos para el hogar" />
-      <link rel="apple-touch-icon" href="/public/icon-192x192.png" />
-      <link rel="apple-touch-startup-icon" href="/public/icon-192x192.png" />
-      <link rel="icon" href="/public/iso_fvg@2x.png" />
+      <link rel="apple-touch-icon" href="/public/favicon-192x192.png" />
+      <link rel="apple-touch-startup-icon" href="/public/favicon-192x192.png" />
+      <link rel="icon" href="/public/favicon.ico" />
       <meta name="mobile-web-app-capable" content="yes" />
       <meta name="theme-color" content="#440099" />
       <link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap' rel='stylesheet' />
