@@ -1,10 +1,10 @@
 import { Fragment } from 'react';
 import { Layout } from '~/common/Layout/Layout';
-import { NoData } from '~/common/NoData/NoData';
+// import { NoData } from '~/common/NoData/NoData'; // Removed
 import { DetailStyled } from './../Detail/Detail.styled';
 import { Grid } from '@styles/grid.styled';
 import { Bread } from '~/common/Bread/Bread';
-import Link from 'next/link';
+// import Link from 'next/link'; // Removed
 
 type TechProps = {
 	api : object[],

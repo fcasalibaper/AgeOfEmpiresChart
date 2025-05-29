@@ -23,7 +23,7 @@ const Home = (api :  HomeProps) => {
 		<Layout>
 			<Grid as="ul"
 				colSize={12}
-				wrap={"true"}
+				wrap={true}
 				padd={'30px 0'}
 			>
 				{

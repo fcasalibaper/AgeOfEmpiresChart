@@ -1,7 +1,7 @@
 
 import { createGlobalStyle } from 'styled-components';
-import { media } from "./breakpoints.styled";
-import { FONT_ROOT, FONT_SIZE_ROOT, HEADER_HEIGHT_MOBILE } from './variables.styled';
+import { media } from "@styles/breakpoints.styled";
+import { FONT_ROOT, FONT_SIZE_ROOT, HEADER_HEIGHT_MOBILE } from '@styles/variables.styled';
 
 const scrollbartrackcolor = 'transparent';
 const scrollbarcolor = 'rgba(0,0,0,.3)';

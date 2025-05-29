@@ -2,7 +2,19 @@ import styled from 'styled-components';
 import { containerMaxWidth, media } from './breakpoints.styled';
 import { REGULAR, TRANSITION, COLOR_BLUE, PADDING_DESKTOP_LR, BOLD, FONT_ROOT, PADDING_MOBILE_LR, COLOR_GREYDARK } from './variables.styled';
 
-export const Row = styled.div`
+interface RowProps {
+  column?: boolean;
+  width?: string;
+  maxWidth?: string;
+  wrap?: boolean; // Changed to boolean
+  margin?: string;
+  padd?: string;
+  direction?: string; // For FlexRow
+  xAlign?: string;    // For FlexRow
+  yAlign?: string;    // For FlexRow
+}
+
+export const Row = styled.div<RowProps>`
   position:relative;
   display:flex;
   flex-direction: ${props => props.column ? 'column' : 'row'};
@@ -13,9 +25,7 @@ export const Row = styled.div`
     max-width: ${props.maxWidth};
   `}
 
-  ${props => props.wrap == "true" &&`
-    flex-wrap: wrap;
-  `}
+  ${props => props.wrap && `flex-wrap: wrap;`}
 
   ${props => props.margin &&`
     margin: ${props.margin};
@@ -26,17 +36,27 @@ export const Row = styled.div`
   `}
 `;
 
-export const Container = styled.div`
+interface ContainerProps {
+  padd?: string;
+  column?: boolean;
+  center?: boolean;
+  justifyContent?: string;
+  alignItems?: string;
+  wrap?: boolean;
+  margin?: string;
+}
+
+export const Container = styled.div<ContainerProps>`
   position: relative;
   display: flex;
   width:100%;
 	max-width: ${containerMaxWidth}px;
 	margin: auto;
-	padding: ${props => props.padd ? props.padd : `0 ${PADDING_MOBILE_LR}px`};
+	padding: ${props => (props as ContainerProps).padd ? (props as ContainerProps).padd : `0 ${PADDING_MOBILE_LR}px`};
   flex-direction: ${props => props.column ? 'column' : 'row'};
 
 	${media.greaterThan("sm")`
-		padding: ${props => props.padd ? props.padd : `0 ${PADDING_DESKTOP_LR}px`};
+		padding: ${props => (props as ContainerProps).padd ? (props as ContainerProps).padd : `0 ${PADDING_DESKTOP_LR}px`};
 	`};
 
   ${props => props.center &&`
@@ -80,7 +100,7 @@ export const FlexWrap = styled.div`
   flex-wrap: wrap;
 `;
 
-export const FlexRow = styled(Row)`
+export const FlexRow = styled(Row)<RowProps>`
   position:relative;
   display:flex;
   flex-direction: ${props => props.direction ? props.direction : 'row'};
@@ -139,7 +159,13 @@ export const ContainerFull = styled.div`
 // BUTTONS
 export const UnderLinkSpan = UnderlineLink.withComponent('span');
 
-export const ButtonStyled = styled.button`
+interface ButtonStyledProps {
+  variant?: 'outlined' | string;
+  size?: 'full' | string;
+  disabled?: boolean;
+}
+
+export const ButtonStyled = styled.button<ButtonStyledProps>`
 	font-family: ${FONT_ROOT};
 	border-radius: 9.6px;
 	border: none;
@@ -148,15 +174,15 @@ export const ButtonStyled = styled.button`
 	height: 50px;
 	padding: 1rem 2rem;
 	text-transform: inherit;
-	background-color: ${props => props.variant == 'outlined' ? 'transparent' : COLOR_BLUE};
+	background-color: ${props => props.variant === 'outlined' ? 'transparent' : COLOR_BLUE};
 	font-size: 20px;
   font-weight: ${REGULAR};
   line-height: 1;
   text-align: center;
 	transition: ${TRANSITION};
-	width: ${props => props.size == 'full' ? '100%' : 'auto'};
+	width: ${props => props.size === 'full' ? '100%' : 'auto'};
 	border: transparent;
-	color:  ${props => props.variant == 'outlined' ? COLOR_GREYDARK : 'white'};
+	color:  ${props => props.variant === 'outlined' ? COLOR_GREYDARK : 'white'};
 	cursor: pointer;
 
 	${media.greaterThan('sm')`

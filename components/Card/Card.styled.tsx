@@ -2,7 +2,11 @@ import styled from "styled-components";
 import { Grid } from "@styles/grid.styled";
 import { BOLD, COLOR_GREYDARK, COLOR_LIGHTGREEN, REGULAR, SEMIBOLD, TRANSITION } from '@styles/variables.styled';
 
-export const CardStyled = styled(Grid)`
+interface CardStyledProps {
+  selected?: boolean;
+}
+
+export const CardStyled = styled(Grid)<CardStyledProps>`
 	height: 100%;
 	border-radius: 20px;
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);

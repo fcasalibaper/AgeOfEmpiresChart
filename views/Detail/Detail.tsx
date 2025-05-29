@@ -15,8 +15,8 @@ type DetailProps = {
 		id: number,
 		name: string,
 		army_type: string,
-		civilization_bonus: [],
-		unique_tech: []
+		civilization_bonus: string[], // Changed from []
+		unique_tech: string[] // Changed from []
 	}]
 }
 
@@ -27,7 +27,7 @@ const Detail = (api : DetailProps) => {
 	const favChecked = fav !== null && fav;
 	const { civilization } = api;
 
-	const handleSelection = (selected) => {
+	const handleSelection = (selected: string) => { // Added type string
 		setFav(selected);
 		router.push(`/`);
 	}
@@ -65,13 +65,14 @@ const Detail = (api : DetailProps) => {
 										{
 											item.unique_tech.map(tech => {
 												const parts = tech.split('/');
-												const lastSegment = parts.pop('') || parts.pop();
-												const nameTech =  lastSegment.indexOf('_') > 0 ? lastSegment.replace(/_/g, ' ') : lastSegment;
+												const lastSegment = parts.pop() || parts.pop(); // Removed argument from pop()
+												const finalSegment = lastSegment || ""; // Ensure it's a string
+												const nameTech =  finalSegment.indexOf('_') > 0 ? finalSegment.replace(/_/g, ' ') : finalSegment;
 												return (
 													<Link
 														key={tech}
 														href={`/tech/[subIndex]`}
-														as={`/tech/${lastSegment}`}
+														as={`/tech/${finalSegment}`} // Use finalSegment
 													><UnderlineLink as={'a'}>
 														<li key={tech}>{nameTech}</li>
 													</UnderlineLink>

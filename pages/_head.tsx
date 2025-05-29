@@ -1,6 +1,11 @@
 import Head from 'next/head';
+import { ReactNode } from 'react';
 
-const MyHead = (props) => {
+interface MyHeadProps {
+  children?: ReactNode;
+}
+
+const MyHead = (props: MyHeadProps) => {
 	return (
     <Head>
       <title>Age of Empires II chart</title>

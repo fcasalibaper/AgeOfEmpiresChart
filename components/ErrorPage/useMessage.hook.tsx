@@ -1,4 +1,4 @@
-const useMessage = (status) => {
+const useMessage = (status: number) => {
 	let title;
 	let subtitle;
 	switch (status) {

@@ -16,7 +16,7 @@ export const Layout = ({children} : LayoutProps) => {
 		<Fragment>
 			<Header fav={favChecked} />
 			<Grid as={'section'} direction={'column'}>
-				<Container wrap={'true'}>
+				<Container wrap={true}>
 					{children}
 				</Container>
 			</Grid>

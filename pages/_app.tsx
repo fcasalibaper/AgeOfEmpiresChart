@@ -16,7 +16,6 @@ const MyApp = ({ Component, pageProps, router }: AppProps) => {
 			<GlobalStyle />
 			<AnimatePresence
 				exitBeforeEnter
-				style={{height: '100%'}}
 			>
 				<motion.div
 					style={{height: '100%', width: '100%'}}

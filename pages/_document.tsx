@@ -1,19 +1,31 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Document, { Html, Head, Main, NextScript, DocumentContext, DocumentInitialProps } from 'next/document';
+// import { AppProps } from 'next/app'; // Removed AppProps import
 import { ServerStyleSheet } from 'styled-components';
 
-interface IProps {
+interface IProps extends DocumentInitialProps {
   styleTags: Array<React.ReactElement<{}>>;
 }
 
 export default class MyDocument extends Document<IProps> {
-  static getInitialProps({ renderPage }) {
+  static async getInitialProps(ctx: DocumentContext): Promise<IProps> {
     const sheet = new ServerStyleSheet();
-    const page = renderPage((App) => (props) =>
-      sheet.collectStyles(<App {...props} />),
-    );
+    const originalRenderPage = ctx.renderPage;
 
-    const styleTags = sheet.getStyleElement();
-    return { ...page, styleTags };
+    try {
+      ctx.renderPage = () =>
+        originalRenderPage({
+          enhanceApp: (App: any) => (props: any) => // App parameter typed as any
+            sheet.collectStyles(<App {...props} />),
+        });
+
+      const initialProps = await Document.getInitialProps(ctx);
+      return {
+        ...initialProps,
+        styleTags: sheet.getStyleElement(),
+      };
+    } finally {
+      sheet.seal();
+    }
   }
 
   render() {
