@@ -12,7 +12,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 	const response = await axios.get(`${API_CIVILIZATIONS}/technology/${context.query.subIndex}`)
     .then(res => res.data)
     .then(data => {
-			const checkData = (data !== undefined || data !== []);
+			const checkData = data !== undefined && data !== null;
       return checkData ? data : null;
     })
 		.catch(e => {

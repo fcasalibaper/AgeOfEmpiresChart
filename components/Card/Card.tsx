@@ -1,11 +1,10 @@
-import { useState } from 'react';
 import { Grid } from '@styles/grid.styled'
 import { CardStyled } from '~/Card/Card.styled'
 import Link from 'next/link'
 
 type CardProps = {
 	title: string,
-	bonus? : [] | undefined,
+	bonus? : string[] | undefined,
 	link : string,
 	selected? : string | false
 }
@@ -16,8 +15,6 @@ export const Card = ({
 	link,
 	selected
 } : CardProps) => {
-	const [ isSubmitted, setSubmitted ] = useState<boolean>(false);
-	
 	return (
 		<Grid
 			as={'li'}
@@ -31,7 +28,7 @@ export const Card = ({
 				as={`/detail/${link}`}
 				// disabled={isSubmitted}
 			>
-				<a style={{width: '100%'}} onClick={() => setSubmitted(true)}>
+				<a style={{width: '100%'}}>
 					<CardStyled
 						colSize={12}
 						padd={'2rem'}

@@ -14,7 +14,7 @@ export const Header = ({fav} : HeaderProps) => {
 		<HeaderStyled as="header" colSize={12}>
 			<Container
 				justifyContent={'space-between'}
-				alignCenter={'center'}
+				alignItems={'center'}
 			>
 				<figure>
 					<Image

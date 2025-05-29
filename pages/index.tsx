@@ -12,7 +12,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const response = await axios.get(`${API_CIVILIZATIONS}/civilizations`)
     .then(res => res.data)
     .then(data => {
-			const checkData = (data.civilizations !== undefined || data.civilizations !== []);
+			const checkData = Array.isArray(data.civilizations) && data.civilizations.length > 0;
       return checkData ? data.civilizations : null;
     })
 		.catch(e => {
